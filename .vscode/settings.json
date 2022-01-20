@@ -1,0 +1,6 @@
+{
+    "[rust]": {
+        "editor.quickSuggestions": true,
+        "editor.formatOnSave": true
+    },
+}
