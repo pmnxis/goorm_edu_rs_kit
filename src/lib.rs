@@ -3,20 +3,22 @@
 /// A code test library for easy variable of integer or vector of integer from standard input.
 extern crate num;
 
-pub mod groom_helper {
+pub mod goorm_helper {
     use num::Integer;
     use num::NumCast;
     use num::Zero;
     use std::io;
     use std::io::prelude::*;
-    use std::ops::{Add, Mul, Sub};
+    use std::ops::{Add, Div, Mul, Sub};
 
     fn int_from_vec_u8<T>(vector: &Vec<u8>) -> T
     where
         T: Add<Output = T>
-            + Mul<Output = T>
             + Sub<Output = T>
+            + Mul<Output = T>
+            + Div<Output = T>
             + Zero<Output = T>
+            + num::ToPrimitive
             + NumCast
             + Integer
             + Copy,
@@ -40,14 +42,21 @@ pub mod groom_helper {
         }
     }
 
-    /// Get integer number from one line stdio.
+    /// Get single integer from one line stdio.
+    /// Standard input example : '4\n'
+    /// ```rs
+    /// let len: usize = goorm_helper::get_int();
+    /// assert_eq!(4, len);
+    /// ```
     #[cfg(target_pointer_width = "64")]
     pub fn get_int<T>() -> T
     where
         T: Add<Output = T>
-            + Mul<Output = T>
             + Sub<Output = T>
+            + Mul<Output = T>
+            + Div<Output = T>
             + Zero<Output = T>
+            + num::ToPrimitive
             + NumCast
             + Integer
             + Copy,
@@ -58,14 +67,21 @@ pub mod groom_helper {
             .expect("Failed to read stdin.");
         NumCast::from(buffer.trim().parse::<i64>().unwrap()).unwrap()
     }
-
+    /// Get single integer from one line stdio.
+    /// Standard input example : '4\n'
+    /// ```rs
+    /// let len: usize = goorm_helper::get_int();
+    /// assert_eq!(4, len);
+    /// ```
     #[cfg(target_pointer_width = "32")]
     pub fn get_int<T>() -> T
     where
         T: Add<Output = T>
-            + Mul<Output = T>
             + Sub<Output = T>
+            + Mul<Output = T>
+            + Div<Output = T>
             + Zero<Output = T>
+            + num::ToPrimitive
             + NumCast
             + Integer
             + Copy,
@@ -77,19 +93,20 @@ pub mod groom_helper {
         NumCast::from(buffer.trim().parse::<i32>().unwrap()).unwrap()
     }
 
-    /// Get vectorized number with fixed length from one line stdio.
-    /// ### Standard Input Example
+    /// Get vectorized multiple integers with fixed length from one line stdio.
+    /// Standard input example : '10 20 30 40\n'
+    /// ```rs
+    /// let list: Vec<i32> = goorm_helper::get_vec_int(4);
+    /// assert_eq!(&[10, 20, 30, 40], &list[..]);
     /// ```
-    /// 1 2 3 4 5 6 7 8
-    /// ```
-    /// ### Output Example
-    /// vec![1,2,3,4,5,6,7,8]
-    pub fn get_vec_intt<T>(len: usize) -> Vec<T>
+    pub fn get_vec_int<T>(len: usize) -> Vec<T>
     where
         T: Add<Output = T>
-            + Mul<Output = T>
             + Sub<Output = T>
+            + Mul<Output = T>
+            + Div<Output = T>
             + Zero<Output = T>
+            + num::ToPrimitive
             + NumCast
             + Integer
             + Copy,
