@@ -9,14 +9,16 @@ pub mod groom_helper {
     use num::Zero;
     use std::io;
     use std::io::prelude::*;
-    use std::ops::{Add, Mul, Sub};
+    use std::ops::{Add, Div, Mul, Sub};
 
     fn int_from_vec_u8<T>(vector: &Vec<u8>) -> T
     where
         T: Add<Output = T>
-            + Mul<Output = T>
             + Sub<Output = T>
+            + Mul<Output = T>
+            + Div<Output = T>
             + Zero<Output = T>
+            + num::ToPrimitive
             + NumCast
             + Integer
             + Copy,
@@ -45,9 +47,11 @@ pub mod groom_helper {
     pub fn get_int<T>() -> T
     where
         T: Add<Output = T>
-            + Mul<Output = T>
             + Sub<Output = T>
+            + Mul<Output = T>
+            + Div<Output = T>
             + Zero<Output = T>
+            + num::ToPrimitive
             + NumCast
             + Integer
             + Copy,
@@ -63,9 +67,11 @@ pub mod groom_helper {
     pub fn get_int<T>() -> T
     where
         T: Add<Output = T>
-            + Mul<Output = T>
             + Sub<Output = T>
+            + Mul<Output = T>
+            + Div<Output = T>
             + Zero<Output = T>
+            + num::ToPrimitive
             + NumCast
             + Integer
             + Copy,
@@ -87,9 +93,11 @@ pub mod groom_helper {
     pub fn get_vec_intt<T>(len: usize) -> Vec<T>
     where
         T: Add<Output = T>
-            + Mul<Output = T>
             + Sub<Output = T>
+            + Mul<Output = T>
+            + Div<Output = T>
             + Zero<Output = T>
+            + num::ToPrimitive
             + NumCast
             + Integer
             + Copy,
