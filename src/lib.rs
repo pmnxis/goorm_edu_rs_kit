@@ -18,7 +18,6 @@ pub mod groom_helper {
             + Mul<Output = T>
             + Div<Output = T>
             + Zero<Output = T>
-            + num::ToPrimitive
             + NumCast
             + Integer
             + Copy,
@@ -51,7 +50,6 @@ pub mod groom_helper {
             + Mul<Output = T>
             + Div<Output = T>
             + Zero<Output = T>
-            + num::ToPrimitive
             + NumCast
             + Integer
             + Copy,
@@ -71,7 +69,6 @@ pub mod groom_helper {
             + Mul<Output = T>
             + Div<Output = T>
             + Zero<Output = T>
-            + num::ToPrimitive
             + NumCast
             + Integer
             + Copy,
@@ -97,7 +94,6 @@ pub mod groom_helper {
             + Mul<Output = T>
             + Div<Output = T>
             + Zero<Output = T>
-            + num::ToPrimitive
             + NumCast
             + Integer
             + Copy,
